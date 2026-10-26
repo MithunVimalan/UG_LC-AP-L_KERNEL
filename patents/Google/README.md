@@ -61,6 +61,12 @@ The F3 side — XLA's tiled layout `T(8,128)`, `(8,128)(2,1)` for bf16 — is do
 - **In three-formula terms (analysis).** F3's dot product evaluated m times in parallel per cycle — the DMA analogue of the tensor traversal unit above.
 - **Links:** [Google Patents US11762793](https://patents.google.com/patent/US11762793) · [USPTO PDF 11762793](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11762793) · [USPTO PDF 11314674](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11314674) · [Justia 12287745](https://patents.justia.com/patent/12287745) · [OG 12287745](https://patentsgazette.uspto.gov/week17/OG/html/1533-5/US12287745-20250429.html) · [EP4022450](https://data.epo.org/publication-server/rest/v1.2/patents/EP4022450NWA1/document.html)
 
+#### 3.5c US10504022B2 / US11727259B2 / US11501144 — Neural network accelerator with parameters resident on chip
+- **Assignee:** Google LLC. **Inventors:** Olivier Temam, Harshit Khaitan, Ravi Narayanaswami, Dong Hyuk Woo. Provisional 62/544,171 (11 Aug 2017).
+- **What it covers.** A compute tile with a **first memory bank for input activations** and a **second memory bank holding enough network parameters on-chip** to meet latency/throughput targets, both feeding the MAC operators.
+- **In three-formula terms (analysis).** F3 placement: keep weights resident (weight-stationary storage), so F2's weight address never leaves the chip — the on-chip analogue of your "weights are 864 bytes, trivially resident in L1".
+- **Links:** [Google Patents US11727259](https://patents.google.com/patent/US11727259) · [USPTO PDF 10504022](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10504022) · [Justia 10504022](https://patents.justia.com/patent/10504022)
+
 ### F1 — Schedule
 
 #### 3.6 US9959498B1 / US9836691B1 / US9846837 / US12061968 — Neural network instruction set architecture
