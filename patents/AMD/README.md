@@ -50,6 +50,12 @@ Two very different AMD portfolios touch the chain:
 - **In three-formula terms (analysis).** A line-buffer + shift-register implementation of the conv window: rows `ih = oh - pad + r` are held in the buffer, and shifting walks `iw = ow - pad + s`. This is the hardware twin of keeping 4 input rows live for a 2-row output tile.
 - **Links:** [Google Patents US11386644](https://patents.google.com/patent/US11386644) · [USPTO PDF 11386644](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11386644) · [Justia 20190114499](https://patents.justia.com/patent/20190114499) · [EP3698313B1](https://data.epo.org/gpi/EP3698313B1)
 
+#### 3.3b US11106968B1 / US10411709B1 / US11704536B1 — traversing / dividing input feature maps; convolution circuitry (Xilinx)
+- **Assignee:** Xilinx, Inc. **Inventors (11106968):** Ehsan Ghasemi, Elliott Delaye, Ashish Sirasao. App. 15/989,075.
+- **US11106968** stores adjacent IFM elements in a buffer and traverses them with **height and width traversal circuits** (each a counter + offset adder) and an **address generator** that computes `addr = width_traversal + input_width * height_traversal`, producing a deliberately **non-sequential** address order. **US10411709** divides a 3-D IFM into sub-maps; **US11704536** is convolution circuitry.
+- **In three-formula terms (analysis).** F2 as nested counters with strength-reduced address adders — the hardware form of `off = ... + (oh + kh - 1)*W + (ow + kw - 1)`, same as Google's adder-based tensor traversal unit.
+- **Links:** [Google Patents US11106968](https://patents.google.com/patent/US11106968) · [USPTO PDF 11106968](https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11106968) · [Google Patents US10411709](https://patents.google.com/patent/US10411709) · [Google Patents US11704536](https://patents.google.com/patent/US11704536)
+
 #### 3.4 US11194490B1 — Data formatter for convolution (Xilinx)
 - **Assignee:** Xilinx Inc. **Inventors:** Ravi Sunkavalli, Victor J. Wu, Poching Sun. Application 15/956,594.
 - **What it covers.** Memory circuit + data upload circuitry + **data formatting circuitry** + systolic array. The formatter **reads subsets of a multi-dimensional data set and arranges their elements into data streams output in parallel**; the systolic array computes the output feature map from those streams and the filter values.
